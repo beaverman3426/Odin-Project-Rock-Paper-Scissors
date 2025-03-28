@@ -25,39 +25,24 @@ if(randomnum==1){
    }
 }
     function playRound(humanChoice, randomnum){
-    if(humanChoice==="rock" && randomnum==="scissors"){
-        console.log("the indomitable human spirit has triumphed")
-        humanScore=humanScore+1
-    }
-      else if(humanChoice==="scissors" && randomnum==="rock"){
-        console.log("The machine has won")
-        computercore=computercore+1
+      const outcomes = {
+        rock: { scissors: "human", paper: "computer", rock: "draw" },
+        scissors: { paper: "human", rock: "computer", scissors: "draw" },
+        paper: { rock: "human", scissors: "computer", paper: "draw" }
+      };
+      
+      const result = outcomes[humanChoice][randomnum];
+      
+      if (result === "human") {
+        console.log("The indomitable human spirit has triumphed");
+        humanScore++;
+      } else if (result === "computer") {
+        console.log("The machine has won");
+        computercore++;
+      } else {
+        console.log("draw");
       }
-      else if(humanChoice==="scissors" && randomnum==="paper"){
-        console.log("the indomitable human spirit has triumphed")
-        humanScore=humanScore+1
-      }
-      else if(humanChoice==="scissors" && randomnum==="scissors"){
-        console.log("draw")
-      }
-      else if(humanChoice=== "rock" && randomnum==="paper"){
-        console.log("The machine has won")
-        computercore=computercore+1
-      }
-      else if(humanChoice==="rock" && randomnum==="rock"){
-        console.log("draw")
-      }
-      else if(humanChoice==="paper" && randomnum==="paper"){
-        console.log("draw")
-      }
-      else if(humanChoice==="paper" && randomnum==="rock"){
-        console.log("the indomitable human spirit has triumphed")
-        humanScore=humanScore+1
-      }
-      else if(humanChoice==="paper" && randomnum==="scissors"){
-        console.log("The machine has won")
-        computercore=computercore+1
-      }
+      
 
 }
 
